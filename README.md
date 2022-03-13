@@ -2,6 +2,12 @@
 
 A ESP32 Tilt Hydrometer Relay to [Brewfather](https://brewfather.app/)
 
+```mermaid
+graph LR
+    A[Tilt] -->|BLE: gravity temperature| B(ESP32)
+    B -->|http: POST json| C[brewfather.app]
+```
+
 ## Support
 
 * [Tilt](https://tilthydrometer.com/products/copy-of-tilt-floating-wireless-hydrometer-and-thermometer-for-brewing)
@@ -12,14 +18,14 @@ A ESP32 Tilt Hydrometer Relay to [Brewfather](https://brewfather.app/)
 
 * Provide your own `private.h` file with your WiFi credentials and your custom stream URL.
 
-Example:
+### Example
 
 ```c
 #ifndef __PRIVATE_H__
 #define __PRIVATE_H__
 
-#define DEFAULT_SSID		"wifi-ssid"
-#define DEFAULT_PASSWORD	"wifi-password"
+#define DEFAULT_SSID        "wifi-ssid"
+#define DEFAULT_PASSWORD    "wifi-password"
 #define BREWFATHER_URL      "/stream?id=XXXXXXXXXX"
 #endif
 ```
